@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recipe Finder </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>🍽️ Recipe Finder</h1>
+      <p class="tag">Find. Save. Cook.</p>
+    </div>
+
+    <div class="controls">
+      <button id="favoritesBtn" class="icon-btn" title="Favorites">
+        ❤️ <span id="favCount" class="badge">0</span>
+      </button>
+
+      <button id="themeToggle" class="icon-btn" title="Toggle dark mode">🌗</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h2>Find your next favourite meal</h2>
+      <p>Search recipes, view ingredients, save favorites, and share recipes.</p>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search recipes (e.g. pasta, chicken, cake)" />
+        <button id="searchBtn" class="primary">Search</button>
+        <button id="randomBtn" class="secondary" title="Surprise me">🎲 Random</button>
+      </div>
+    </section>
+
+    <section id="featured" class="featured">
+      <h3>Featured Recipes</h3>
+      <div id="recipeContainer" class="recipe-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- Recipe Detail Modal -->
+  <div id="recipeModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="close-btn" id="closeModal" aria-label="Close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Favorites Panel (simple modal panel) -->
+  <div id="favoritesModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="close-btn" id="closeFavorites" aria-label="Close">✕</button>
+      <h3>Your Favorites</h3>
+      <div id="favoritesList" class="favorites-list"></div>
+      <p id="noFavsMsg" class="muted">You have no favorites yet — save a recipe by clicking the ❤️ on a card.</p>
+    </div>
+  </div>
+
+  <template id="cardTpl">
+    <article class="card">
+      <img class="thumb" alt="">
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <div class="meta">
+          <span class="cooktime"></span>
+          <div class="card-actions">
+            <button class="fav-btn" title="Save to favorites">🤍</button>
+            <button class="view-btn" title="View details">🔍</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
